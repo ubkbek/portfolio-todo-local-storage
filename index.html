@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Todo</title>
+</head>
+<body class="container">
+    <h1 class="text-center my-5 display-3 fw-normal text-danger">Todo</h1>
+    <form class="todo__form">
+        <input class="todo__input" type="text" placeholder="type...">
+
+        <button class="todo__submit-btn">Add</button>
+    </form>
+    <br>
+    <div class="todo__controls">
+        <button class="btnAll">
+            All <strong class="allCount">0</strong>
+        </button>
+        <button class="btnCompleated">
+            Compleated <strong class="compleatedCount">0</strong>
+        </button>
+        <button class="btnUncompleated">
+            Uncompleated <strong class="uncompleatedCount">0</strong>
+        </button>
+    </div>
+
+    <br>
+    <ul class="todo__list">
+        <!-- items -->
+    </ul>
+
+
+    <template id="todo_item_template">
+        <li class="todo__item">
+            <div>
+                <input class="checkbox__todo" type="checkbox">
+                <span class="todo_text">Dars qilish</span>
+            </div>
+            <button class="todo__del-btn" type="button">Delete</button>
+        </li>
+    </template>
+    <script src="./js/main.js"></script>
+</body>
+</html>

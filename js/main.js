@@ -1,4 +1,4 @@
-//  Get element from DOM
+//  =====-===== Get element from DOM =====-=====
 const elTodoForm = document.querySelector('.todo__form');
 const elTodoInput = document.querySelector('.todo__input');
 const elTodoList = document.querySelector('.todo__list');
@@ -12,24 +12,27 @@ const elUncompleatedCount = document.querySelector('.uncompleatedCount');
 const elTodosControls = document.querySelector('.todo__controls');
 const elTodoTemplate = document.querySelector('#todo_item_template').content;
 
+// =======-====== local storage =======-======
 let storage = window.localStorage
 let localTodoArray = JSON.parse(storage.getItem("todoArray"))
 let localCounter = JSON.parse(storage.getItem("counter"))
 
 
-
-
 let todosArray = localTodoArray || [];
-
 let counter = localCounter || 1
 
 
+
+// =====-===== update =====-=====
 function updateArray(){
     storage.setItem("todoArray", JSON.stringify(todosArray))
     renderTodos(todosArray, elTodoList)
     calculateTodos(todosArray)
 }
 
+
+
+// 1.=====-===== unshift =====-=====
 elTodoForm.addEventListener("submit", function(evt){
     evt.preventDefault();
 
@@ -41,7 +44,7 @@ elTodoForm.addEventListener("submit", function(evt){
             todo: todoInput,
             isCompleated: false
         }
-        storage.setItem("counter", JSON.stringify(counter ))
+        storage.setItem("counter", JSON.stringify(counter))
         todosArray.unshift(oneTodo)
         elTodoInput.value = null
     }
@@ -50,6 +53,7 @@ elTodoForm.addEventListener("submit", function(evt){
 
 
 
+// 2. =====-===== render =====-=====
 function renderTodos(array, wrapper){
     wrapper.innerHTML = null;
 
@@ -77,11 +81,10 @@ renderTodos(todosArray, elTodoList)
 
 
 
+// 3.=====-===== check =====-=====
 elTodoList.addEventListener("click", function(evt){
     let check = evt.target.matches(".checkbox__todo")
     let checkForBtn  = evt.target.matches(".todo__del-btn")
-    console.log(checkForBtn );
-
 
     if(check){
         let checkboxId = evt.target.dataset.todoId
@@ -96,13 +99,13 @@ elTodoList.addEventListener("click", function(evt){
 
 
         if(!foundTodo.isCompleated){
-            foundTodo.isCompleated = true
+            // foundTodo.isCompleated = true
             todosArray[foundTodoIndex].isCompleated = true
             updateArray();
         }
         else{
             todosArray[foundTodoIndex].isCompleated = false
-            foundTodo.isCompleated = false
+            // foundTodo.isCompleated = false
             updateArray();
         }
     }
@@ -120,6 +123,8 @@ elTodoList.addEventListener("click", function(evt){
 })
 
 
+
+// =====-===== Calculate =====-=====
 function calculateTodos(array){
     let compleatedTodos = array.filter((item)=> item.isCompleated === true)
     let notCompleatedTodos = array.filter((item)=> item.isCompleated === false)
@@ -139,6 +144,8 @@ function calculateTodos(array){
 calculateTodos(todosArray)
 
 
+
+// =====-===== show select =====-=====
 elTodosControls.addEventListener("click", function(evt){
     let allBtn = evt.target.matches(".btnAll")
     let compleatedBtn = evt.target.matches(".btnCompleated")

@@ -98,10 +98,12 @@ elTodoList.addEventListener("click", function(evt){
         if(!foundTodo.isCompleated){
             foundTodo.isCompleated = true
             todosArray[foundTodoIndex].isCompleated = true
+            updateArray();
         }
         else{
             todosArray[foundTodoIndex].isCompleated = false
             foundTodo.isCompleated = false
+            updateArray();
         }
     }
 
@@ -121,7 +123,7 @@ elTodoList.addEventListener("click", function(evt){
 function calculateTodos(array){
     let compleatedTodos = array.filter((item)=> item.isCompleated === true)
     let notCompleatedTodos = array.filter((item)=> item.isCompleated === false)
- 
+
     let allTodoNumber = array.length
     let compleatedTodoNumber = allTodoNumber - notCompleatedTodos.length
     let notCompleatedTodoNumber = allTodoNumber - compleatedTodoNumber

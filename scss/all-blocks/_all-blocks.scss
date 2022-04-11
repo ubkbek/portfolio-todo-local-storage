@@ -29,19 +29,37 @@ body{
 }
 
 .todo__submit-btn{
-    background-color: #3a991d;
+    display: inline-block;
+    background-color: #36bb0d;
     border: none;
     padding: 20px 40px;
     color: #fff;
 }
 
+.todo__clear-btn{
+    display: inline-block;
+    background-color: #ff4747;
+    border: none;
+    padding: 20px 40px;
+    color: #fff;
+}
+
+.todo__clear-btn:hover{
+    color: #ff4747;
+    background-color: #fff;
+    box-shadow: 0 0 4px 1px #ff4747;
+}
+
+.todo__submit-btn:active{
+    opacity: 0.7;
+}
 .todo__submit-btn:hover{
     color: #3a991d;
     background-color: #fff;
     box-shadow: 0 0 4px 1px #3a991d;
 }
 
-.todo__submit-btn:active{
+.todo__clear-btn:active{
     opacity: 0.7;
 }
 
@@ -58,6 +76,15 @@ body{
     border: 1px solid #ff0000;
     border-radius: 2px;
     padding: 5px 5px 0 5px;
+    background: none;
+    background-image: url('../../images/icons8-удалить-навсегда-48.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 28px;
+    height: 30px;
+    border: none;
+    box-shadow: 0 0 4px 1px #ccc;
 }
 
 .btns{

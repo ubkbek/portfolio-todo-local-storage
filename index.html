@@ -13,6 +13,7 @@
         <input class="todo__input" type="text" placeholder="type...">
 
         <button class="todo__submit-btn">Add</button>
+        <button class="todo__clear-btn">Clear</button>
     </form>
     <br>
     <div class="todo__controls">
@@ -36,16 +37,10 @@
     <template id="todo_item_template">
         <li class="todo__item">
             <div>
-                <input class="checkbox__todo" type="checkbox">
+                <input class="checkbox__todo" type="checkbox" active>
                 <span class="todo_text">Dars qilish</span>
             </div>
             <button class="todo__del-btn" type="button">
-                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Group">
-                        <rect id="Rectangle Copy" x="3.18921" y="0.7323" width="19.6923" height="3.69231" transform="rotate(45 3.18921 0.7323)" fill="#ff0000"/>
-                        <rect id="Rectangle Copy 2" x="0.578369" y="14.6569" width="19.6923" height="3.69231" transform="rotate(-45 0.578369 14.6569)" fill="#ff0000"/>
-                    </g>
-                </svg>
             </button>
         </li>
     </template>

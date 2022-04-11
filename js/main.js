@@ -2,6 +2,8 @@
 const elTodoForm = document.querySelector('.todo__form');
 const elTodoInput = document.querySelector('.todo__input');
 const elTodoList = document.querySelector('.todo__list');
+const checkbox = document.querySelector('.checkbox__todo');
+const elClearBtn = document.querySelector(".todo__clear-btn")
 
 const elAllBtn = document.querySelector('.btnAll');
 const elComplateBtn = document.querySelector('.btnCompleated');
@@ -11,6 +13,12 @@ const elCompleatedCount = document.querySelector('.compleatedCount');
 const elUncompleatedCount = document.querySelector('.uncompleatedCount');
 const elTodosControls = document.querySelector('.todo__controls');
 const elTodoTemplate = document.querySelector('#todo_item_template').content;
+
+elClearBtn.addEventListener("click", () => {
+    storage.clear();
+    todosArray = []
+    updateArray();
+})
 
 // =======-====== local storage =======-======
 let storage = window.localStorage
@@ -124,6 +132,7 @@ elTodoList.addEventListener("click", function(evt){
 
 
 
+
 // =====-===== Calculate =====-=====
 function calculateTodos(array){
     let compleatedTodos = array.filter((item)=> item.isCompleated === true)
@@ -137,7 +146,7 @@ function calculateTodos(array){
     elCompleatedCount.textContent = compleatedTodoNumber
     elUncompleatedCount.textContent = notCompleatedTodoNumber
 
-    console.log(allTodoNumber, compleatedTodoNumber, notCompleatedTodoNumber);
+    // console.log(allTodoNumber, compleatedTodoNumber, notCompleatedTodoNumber);
 
 }
 
